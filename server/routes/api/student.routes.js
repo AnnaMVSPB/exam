@@ -38,7 +38,7 @@ router.delete('/:idStudent', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const students = await Student.findAll();
+    const students = await Student.findAll({ order: [['id', 'ASC']] });
     res.json(students);
   } catch (error) {
     res.json({ message: error.message });
